@@ -33,7 +33,7 @@ MainComponent::~MainComponent()
 //==============================================================================
 void MainComponent::prepareToPlay (int samplesPerBlockExpected, double sampleRate)
 {
-    std::string p = "a = 3; b = 2; s = stepsequencer([1,2,3, 4], 2); c = sawtoothosc(110); d = sawtoothosc(1)+; lowpassfilter(d * 3300 + 55);";
+    std::string p = "a = 3; b = 2; s = stepsequencer([1, 2, 3, 4], 1); ss = stepsequencer([2, 8, 16, 32], 1); c = sawtoothosc(s * 110); d = sawtoothosc(1)+; lowpassfilter(ss * 55); e = sawtoothosc(s * 55); f = sawtoothosc(s * 219); g = sawtoothosc(s * 223);";
     int length;
     std::cout << samplesPerBlockExpected << " blocksize expected" << std::endl;
     Token* tokens = tokenize((char*)p.c_str(), &length);
